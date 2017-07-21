@@ -16,15 +16,14 @@ def parse_config():
 
 
 def main():
-    include_paths, exclude_paths = parse_config()
+    #include_paths, exclude_paths = parse_config()
 
-    cmd = ['jshint', '.']
+    cmd = ['jshint', '--reporter=/app/reporter.js', '.']
     #if exclude_paths:
         #cmd.append('--exclude={}'.format(','.join(exclude_paths)))
     #cmd.extend(include_paths)
     try:
         subprocess.check_output(cmd)
-        print('No errors found')
     except subprocess.CalledProcessError as exc:
         print(exc.output.decode())
 
