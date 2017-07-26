@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 import sys
 
@@ -18,7 +19,13 @@ def parse_config():
 def main():
     #include_paths, exclude_paths = parse_config()
 
-    cmd = ['jshint', '--reporter=/app/reporter.js', '.']
+    cmd = ['jshint']
+
+    if not os.path.exists('.jshintignore'):
+        # Use .gitignore if a .jshintignore does not exist
+        cmd.append('--excludepath=/app/.gitignore')
+
+    cmd.extend(['--reporter=/app/reporter.js', '.'])
     #if exclude_paths:
         #cmd.append('--exclude={}'.format(','.join(exclude_paths)))
     #cmd.extend(include_paths)
