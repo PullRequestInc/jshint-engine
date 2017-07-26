@@ -1,2 +1,2 @@
 # JSHint-Engine
-A javascript lint engine using JSHint
+A javascript engine for PullRequest using [JSHint](http://jshint.com/)
