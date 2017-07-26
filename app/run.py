@@ -23,7 +23,7 @@ def main():
 
     if not os.path.exists('.jshintignore'):
         # Use .gitignore if a .jshintignore does not exist
-        cmd.append('--excludepath=/app/.gitignore')
+        cmd.append('--exclude-path=/app/.gitignore')
 
     cmd.extend(['--reporter=/app/reporter.js', '.'])
     #if exclude_paths:
